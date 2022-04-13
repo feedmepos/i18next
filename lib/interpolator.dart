@@ -95,6 +95,13 @@ String nest(
 
       result = translate(key, locale, newVariables, options);
     }
+    if (result != null) {
+      final formatter = options.formatter;
+      if (formatter != null) {
+        final format = regExpMatch.namedGroup('variables');
+        result = formatter(result, format, locale);
+      }
+    }
     return result ?? regExpMatch.group(0)!;
   });
 }
