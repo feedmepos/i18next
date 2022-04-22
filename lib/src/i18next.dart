@@ -90,6 +90,7 @@ class I18Next {
     // TODO: when translator fails, allow a fallback behavior (null or throw)
     return Translator(pluralResolver, resourceStore)
             .call(key, locale, variables, newOptions) ??
+        options?.fallback ??
         key;
   }
 

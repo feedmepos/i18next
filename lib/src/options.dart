@@ -11,6 +11,7 @@ typedef ArgumentFormatter = String Function(
 /// Contains all options for [I18Next] to work properly.
 class I18NextOptions with Diagnosticable {
   const I18NextOptions({
+    this.fallback,
     this.fallbackNamespaces,
     this.namespaceSeparator,
     this.contextSeparator,
@@ -27,6 +28,7 @@ class I18NextOptions with Diagnosticable {
   }) : super();
 
   static const I18NextOptions base = I18NextOptions(
+    fallback: null,
     fallbackNamespaces: null,
     namespaceSeparator: ':',
     contextSeparator: '_',
@@ -41,6 +43,10 @@ class I18NextOptions with Diagnosticable {
     pluralSuffix: 'plural',
     formatter: defaultFormatter,
   );
+
+  /// [fallback] will use when no key matches were found on the current
+  /// namespace. Same as orElse.
+  final String? fallback;
 
   /// The namespaces used to fallback to when no key matches were found on the
   /// current namespace.
