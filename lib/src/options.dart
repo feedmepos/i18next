@@ -192,7 +192,7 @@ class I18NextOptions with Diagnosticable {
   }
 
   @override
-  int get hashCode => hashValues(
+  int get hashCode => Object.hash(
         namespaceSeparator,
         contextSeparator,
         pluralSeparator,
