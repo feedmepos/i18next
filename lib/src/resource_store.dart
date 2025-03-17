@@ -15,6 +15,8 @@ class ResourceStore {
 
   final Map<Locale, Map<String, dynamic>> _data;
 
+  Map<Locale, Map<String, dynamic>> get data => Map.unmodifiable(_data);
+
   /// Registers the [namespace] to the store for the given [locale].
   ///
   /// [locale], [namespace], and [data] cannot be null.
